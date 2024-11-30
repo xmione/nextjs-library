@@ -1,0 +1,33 @@
+{
+  "name": "nextjs-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "spj": "ncp package.json package.original.json",
+    "rpj": "ncp package.original.json package.json",
+    "sdpj": "ncp package.json package.dist.json",
+    "gdpj": "ncp package.dist.json package.json",
+    "githis": "git log --pretty=format:\"%h - %an, %ad : %s\" --date=format:\"%Y-%m-%d %H:%M:%S\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^15.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/react": "^18.3.12",
+    "ncp": "^2.0.0",
+    "rimraf": "^6.0.1",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.7.2",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
+  }
+}
