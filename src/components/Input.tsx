@@ -1,11 +1,11 @@
 // src/components/Input.tsx
-import React from 'react';
+import type { FC } from 'react'; // Import only the FC type from React
 
 interface InputProps {
   placeholder: string;
 }
 
-const Input: React.FC<InputProps> = ({ placeholder }) => {
+const Input: FC<InputProps> = ({ placeholder }) => {
   return <input placeholder={placeholder} />;
 };
 

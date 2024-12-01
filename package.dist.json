@@ -5,12 +5,6 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.js"
-    }
-  },
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "spj": "npx ncp package.json package.original.json",
@@ -43,5 +37,19 @@
     "typescript": "^5.7.2",
     "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./dist/components/Button": {
+      "import": "./dist/components/Button.js",
+      "require": "./dist/components/Button.js"
+    },
+    "./dist/components/Input": {
+      "import": "./dist/components/Input.js",
+      "require": "./dist/components/Input.js"
+    }
   }
 }

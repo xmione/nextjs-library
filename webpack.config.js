@@ -1,7 +1,6 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-// Define __filename and __dirname for ESM
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -11,9 +10,12 @@ export default {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
-    library: 'nextjsLibrary',
-    libraryTarget: 'umd',
-    globalObject: 'this',
+    library: undefined,  // Unset the library property here
+    libraryTarget: 'module',
+    globalObject: "typeof self !== 'undefined' ? self : this",
+  },
+  experiments: {
+    outputModule: true,
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
@@ -27,9 +29,9 @@ export default {
           {
             loader: 'ts-loader',
             options: {
-              transpileOnly: true,  // Use TypeScript without type-checking
+              transpileOnly: true,
               compilerOptions: {
-                jsx: 'preserve',  // Keep JSX as-is for React to process
+                jsx: 'preserve',
               },
             },
           },
@@ -37,9 +39,9 @@ export default {
             loader: 'babel-loader',
             options: {
               presets: [
-                '@babel/preset-env',  // Standard JS transformations
-                '@babel/preset-react',  // Handle JSX
-                '@babel/preset-typescript',  // Handle TypeScript
+                '@babel/preset-env',
+                '@babel/preset-react',
+                '@babel/preset-typescript',
               ],
             },
           },
@@ -48,7 +50,7 @@ export default {
     ],
   },
   externals: {
-    react: 'react', // Externalize React dependency
+    react: 'react',
     'react-dom': 'react-dom',
   },
 };
