@@ -8,7 +8,7 @@ $path = ".\node_modules"
 
 # Start a loop to check if the folder exists
 while (Test-Path $path) {
-    Write-Output "node_modules still exists. Waiting 3 seconds..." -ForegroundColor Yellow
+    Write-Host "node_modules still exists. Waiting 3 seconds..." -ForegroundColor Yellow
     Start-Sleep -Seconds 3
 }
 
@@ -17,7 +17,7 @@ $path = ".\pnpm-lock.yaml"
 
 # Start a loop to check if the folder exists
 while (Test-Path $path) {
-    Write-Output "$path still exists. Waiting 3 seconds..." -ForegroundColor Yellow
+    Write-Host "node_modules still exists. Waiting 3 seconds..." -ForegroundColor Yellow
     Start-Sleep -Seconds 3
 }
 
@@ -26,7 +26,7 @@ $path = ".\nextjs-library-1.0.0.tgz"
 
 # Start a loop to check if the folder exists
 while (Test-Path $path) {
-    Write-Output "$path still exists. Waiting 3 seconds..." -ForegroundColor Yellow
+    Write-Host "node_modules still exists. Waiting 3 seconds..." -ForegroundColor Yellow
     Start-Sleep -Seconds 3
 }
 
