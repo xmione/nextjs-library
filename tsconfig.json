@@ -1,14 +1,28 @@
 {
-    "compilerOptions": {
-      "target": "es5",
-      "lib": ["dom", "esnext"],
-      "module": "esnext",
-      "moduleResolution": "node",
-      "jsx": "react",
-      "esModuleInterop": true,
-      "strict": true,
-      "skipLibCheck": true,
-      "forceConsistentCasingInFileNames": true
-    },
-    "include": ["src"]
-  }
+  "compilerOptions": {
+    "target": "ES2017",              // Targeting exact JS version of Host App for compatibility
+    "lib": ["DOM", "ESNext"],        // Use DOM and modern ESNext features
+    "module": "ESNext",              // Use ESNext module system
+    "moduleResolution": "node",      // Resolve modules as Node.js does
+    "jsx": "react-jsx",              // Optimize JSX with modern React runtime
+    "jsxImportSource": "react",      // Required for "react-jsx" transformation
+    "esModuleInterop": true,         // Interoperability with ES modules
+    "strict": true,                  // Enable all strict type-checking options
+    "skipLibCheck": true,            // Skip type checks for library declaration files
+    "forceConsistentCasingInFileNames": true, // Enforce consistent file name casing
+    "declaration": true,             // Generate type declaration files
+    "declarationDir": "dist/types",  // Output folder for declaration files
+    "outDir": "dist",                // Output folder for compiled files
+    "sourceMap": true,               // Generate source maps for debugging
+    "resolveJsonModule": true,       // Allow importing .json files
+    "allowSyntheticDefaultImports": true, // Allow default imports from modules without default exports
+    "isolatedModules": true          // Ensure each file is treated as its own module
+  },
+  "include": ["src"],                // Include all files in the src folder
+  "exclude": [
+    "node_modules",                  // Exclude node_modules
+    "dist",                          // Exclude the output folder
+    "**/*.test.ts",                  // Exclude test files (if any)
+    "**/*.test.tsx"                  // Exclude test files (if any)
+  ]
+}

@@ -1,7 +1,11 @@
-// webpack.config.js
-const path = require('path');
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-module.exports = {
+// Define __filename and __dirname for ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default {
   mode: 'production',
   entry: './src/index.ts',
   output: {
@@ -18,9 +22,33 @@ module.exports = {
     rules: [
       {
         test: /\.(ts|tsx)$/,
-        use: 'ts-loader',
         exclude: /node_modules/,
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,  // Use TypeScript without type-checking
+              compilerOptions: {
+                jsx: 'preserve',  // Keep JSX as-is for React to process
+              },
+            },
+          },
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                '@babel/preset-env',  // Standard JS transformations
+                '@babel/preset-react',  // Handle JSX
+                '@babel/preset-typescript',  // Handle TypeScript
+              ],
+            },
+          },
+        ],
       },
     ],
+  },
+  externals: {
+    react: 'react', // Externalize React dependency
+    'react-dom': 'react-dom',
   },
 };

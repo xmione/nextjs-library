@@ -4,6 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -12,24 +13,29 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "spj": "ncp package.json package.original.json",
-    "rpj": "ncp package.original.json package.json",
-    "sdpj": "ncp package.json package.dist.json",
-    "gdpj": "ncp package.dist.json package.json",
+    "spj": "npx ncp package.json package.original.json",
+    "rpj": "npx ncp package.original.json package.json",
+    "sdpj": "npx ncp package.json package.dist.json",
+    "gdpj": "npx ncp package.dist.json package.json",
     "githis": "git log --pretty=format:\"%h - %an, %ad : %s\" --date=format:\"%Y-%m-%d %H:%M:%S\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "peerDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
     "next": "^15.0.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.25.9",
     "@types/node": "^22.10.1",
-    "@types/react": "^18.3.12",
+    "babel-loader": "^9.2.1",
     "ncp": "^2.0.0",
     "rimraf": "^6.0.1",
     "ts-loader": "^9.5.1",
