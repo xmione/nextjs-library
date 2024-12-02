@@ -1,5 +1,5 @@
 // src/components/Button.tsx
-import type { FC } from 'react'; // Import only the FC type from React
+import React, { type FC } from 'react'; 
 
 interface ButtonProps {
   label: string;

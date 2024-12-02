@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import { type FC } from 'react';
 interface ButtonProps {
     label: string;
     type?: 'button' | 'submit' | 'reset';
